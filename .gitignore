@@ -93,3 +93,11 @@ Thumbs.db
 !*.md
 !Makefile
 !filelist.f
+
+# Tool-generated HDL simulation artifacts
+*.daidir/
+*.vdb/
+novas*
+vc_hdrs.h
+vdCov.conf
+vdCovLog/
