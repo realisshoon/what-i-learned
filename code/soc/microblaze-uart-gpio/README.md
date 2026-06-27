@@ -34,7 +34,7 @@ This lab records a board-to-board UART/GPIO communication demo using two Basys3 
 ## Key Files
 
 ```text
-20260627_microblaze_uart_gpio/
+microblaze-uart-gpio/
 |-- README.md
 |-- docs/
 |   `-- uart_gpio_demo.md
