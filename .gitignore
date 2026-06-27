@@ -11,6 +11,7 @@
 *.ltx
 *.hwh
 *.xsa
+*.hwdef
 *.bmm
 *.bxml
 *.bda
@@ -23,6 +24,7 @@
 .sim/
 .srcs/
 .gen/
+.vivado/
 Xilinx/
 xsim.dir/
 *.runs/
@@ -31,6 +33,9 @@ xsim.dir/
 
 # Vitis / Eclipse workspace
 .metadata/
+vitis_workspace/.metadata/
+vitis_workspace/*/Debug/
+vitis_workspace/*/Release/
 .settings/
 Debug/
 Release/
@@ -90,6 +95,7 @@ Thumbs.db
 !*.v
 !*.sv
 !*.svh
+!*.xdc
 !*.md
 !Makefile
 !filelist.f
