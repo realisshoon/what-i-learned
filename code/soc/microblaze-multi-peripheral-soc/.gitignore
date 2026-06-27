@@ -1,0 +1,48 @@
+# Vivado generated
+*.jou
+*.log
+*.str
+*.wdb
+*.wcfg
+*.bit
+*.bin
+*.ltx
+*.dcp
+*.rpt
+*.pb
+*.xsa
+.cache/
+.hw/
+.ip_user_files/
+.runs/
+.sim/
+.gen/
+xsim.dir/
+*.Xil/
+
+# Vitis generated
+Debug/
+Release/
+_system/
+*.elf
+*.map
+*.bif
+*.mmi
+*.o
+*.d
+*.a
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Keep source and documentation snapshots
+!*.c
+!*.h
+!*.v
+!*.sv
+!*.xdc
+!*.md
+!*.tcl
