@@ -107,3 +107,7 @@ novas*
 vc_hdrs.h
 vdCov.conf
 vdCovLog/
+
+# Bare-metal dump outputs
+*.dmp
+__dump*.txt
