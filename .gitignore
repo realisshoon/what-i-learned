@@ -30,6 +30,11 @@ xsim.dir/
 *.runs/
 *.sim/
 *.cache/
+*.hw/
+*.gen/
+*.ip_user_files/
+*.xpr
+*.lpr
 
 # Vitis / Eclipse workspace
 .metadata/
