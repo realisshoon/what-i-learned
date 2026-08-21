@@ -1,54 +1,36 @@
 # MicroBlaze Peripheral UART/GPIO Demo
 
-## Project Purpose
+두 대의 Basys3 board를 UART로 연결하고 송수신 byte를 LED로 확인한 실습입니다.
 
-This lab records a board-to-board UART/GPIO communication demo using two Basys3 boards.
+## 한눈에 보기
 
-- Practice MicroBlaze-based AXI peripheral control.
-- Control an AXI Custom UART and AXI GPIO through MMIO.
-- Verify UART communication between two Basys3 boards.
+- Master: MicroBlaze + Vitis C sender
+- Slave: pure RTL UART RX + LED output
+- AXI custom UART/GPIO MMIO access
+- 115200 baud board-to-board communication
 
-## System Configuration
+## System 구성
 
-- Master: MicroBlaze + Vitis C sender application
-  - Source: `master_vitis_sender/helloworld.c`
-  - UART base macro: `XPAR_UART_0_S00_AXI_BASEADDR`
-  - GPIOC base macro: `XPAR_GPIO_2_S00_AXI_BASEADDR`
-  - GPIOD base macro: `XPAR_GPIO_3_S00_AXI_BASEADDR`
-- Slave: Vivado pure RTL UART RX + LED output
-  - Source: `slave_rtl_uart_rx/uart_rx_led_top.sv`
-  - Constraints: `slave_rtl_uart_rx/slave_uart_rx.xdc`
-  - Verified UART baud rate: `115200`
+Master application은 custom UART register에 byte를 쓰고 GPIO LED에도 같은 값을 표시합니다. Slave RTL은 PMOD로 들어온 UART frame을 수신해 LED에 출력합니다.
 
-## Connection
+- Master TX `JB1` → Slave RX `JB2`
+- Master GND → Slave GND
 
-- Master TX on `JB1` -> Slave RX on `JB2`
-- Master GND -> Slave GND
+## 확인 기록
 
-## Verified Result
+- Master LED가 transmit byte에 따라 증가했습니다.
+- Slave LED가 receive byte에 따라 바뀌었습니다.
+- baud rate mismatch를 수정한 뒤 두 board 사이 UART 동작을 확인했습니다.
 
-- The master LEDs increment according to the transmitted byte value.
-- The slave LEDs change according to the received byte value.
-- A baud rate mismatch was found and fixed; UART communication then worked normally.
-
-## Key Files
+## Repository Structure
 
 ```text
-microblaze-uart-gpio/
-|-- README.md
-|-- docs/
-|   `-- uart_gpio_demo.md
-|-- master_vitis_sender/
-|   `-- helloworld.c
-|-- slave_rtl_uart_rx/
-|   |-- uart_rx_led_top.sv
-|   `-- slave_uart_rx.xdc
-`-- notes/
-    `-- troubleshooting.md
+uart-gpio-two-board/
+├── master_vitis_sender/  # MicroBlaze sender application
+├── slave_rtl_uart_rx/    # UART RX/LED RTL과 constraints
+├── docs/                 # 연결 및 동작 기록
+└── notes/                # troubleshooting
 ```
 
-## Next Extensions
-
-- Connect an I2C LCD for live byte/status display.
-- Add SPI ADC or sensor input.
-- Build an integrated UART/GPIO/I2C peripheral demo.
+- [구성 및 동작 기록](docs/uart_gpio_demo.md)
+- [Troubleshooting](notes/troubleshooting.md)

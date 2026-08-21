@@ -121,7 +121,7 @@ Makefile은 Windows용 ARM GNU Toolchain 15.2.1과 GNU Make를 사용하며 기�
 
 다른 위치에 설치했다면 각 Makefile의 TOOL_DIR와 필요 시 VERSION을 수정한다.
 
-    cd code\embedded\stm32f411-timer-uart-labs\1101-led-ping-pong
+    cd 03-embedded\firmware\stm32f411\timer-uart-labs\1101-led-ping-pong
     make
 
     cd ..\1102-reaction-time-test
