@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module tb_axi_timer ();
+module tb_axi_uart ();
 
     parameter integer C_S00_AXI_DATA_WIDTH = 32;
     parameter integer C_S00_AXI_ADDR_WIDTH = 4;
